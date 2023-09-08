@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <label for="lineaDeclaracion">Declaración de Variable:</label>
     <textarea type="text" id="lineaDeclaracion" [(ngModel)]="lineaDeclaracion"></textarea>
     <label for="tipoDato">Tipo de Dato:</label>
@@ -11,24 +11,25 @@
     </select>
     <button (click)="validarDeclaracion()">Validar Declaración</button>
     <div *ngIf="esDeclaracionValida !== undefined">
-      <p *ngIf="esDeclaracionValida; else declaracionInvalida">Declaración válida</p>
-      <ng-template #declaracionInvalida><p>Declaración inválida</p></ng-template>
+      <p *ngIf="esDeclaracionValida; else declaracionInvalida" class="success">Declaración válida</p>
+      <ng-template #declaracionInvalida><p class="error">Declaración inválida</p></ng-template>
     </div>
   </div>
   
-  <div>
+  <div class="container">
     <label for="identificador">Identificador:</label>
     <textarea type="text" id="identificador" [(ngModel)]="identificador"></textarea>
     <button (click)="validarIdentificador()">Validar Identificador</button>
     <div *ngIf="esIdentificadorValido !== undefined">
-      <p *ngIf="esIdentificadorValido; else identificadorInvalido">Identificador válido</p>
-      <ng-template #identificadorInvalido><p>Identificador inválido</p></ng-template>
+      <p *ngIf="esIdentificadorValido; else identificadorInvalido" class="success">Identificador válido</p>
+      <ng-template #identificadorInvalido><p class="error">Identificador inválido</p></ng-template>
     </div>
   </div>
   
-  <div *ngIf="variablesPorTipoDato.length > 0">
+  <div *ngIf="variablesPorTipoDato.length > 0" class="container">
     <h2>Variables definidas para el tipo de dato "{{ tipoDatoSeleccionado }}"</h2>
     <ul>
       <li *ngFor="let variable of variablesPorTipoDato">{{ variable }}</li>
     </ul>
-</div>
+  </div>
+  
