@@ -1,0 +1,24 @@
+<div>
+    <h1>Validación de Declaraciones de Variables e Identificadores</h1>
+  
+    <div>
+      <label for="lineaDeclaracion">Declaración de Variable:</label>
+      <input type="text" id="lineaDeclaracion" [(ngModel)]="lineaDeclaracion">
+      <button (click)="validarDeclaracion()">Validar Declaración</button>
+      <div *ngIf="esDeclaracionValida !== undefined">
+        <p *ngIf="esDeclaracionValida; else declaracionInvalida">Declaración válida</p>
+        <ng-template #declaracionInvalida><p>Declaración inválida</p></ng-template>
+      </div>
+    </div>
+  
+    <div>
+      <label for="identificador">Identificador:</label>
+      <input type="text" id="identificador" [(ngModel)]="identificador">
+      <button (click)="validarIdentificador()">Validar Identificador</button>
+      <div *ngIf="esIdentificadorValido !== undefined">
+        <p *ngIf="esIdentificadorValido; else identificadorInvalido">Identificador válido</p>
+        <ng-template #identificadorInvalido><p>Identificador inválido</p></ng-template>
+      </div>
+    </div>
+  </div>
+  
